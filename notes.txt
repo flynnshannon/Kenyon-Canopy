@@ -1,0 +1,9 @@
+What are the purposes of Git?
+
+What is github versus git?
+
+What problems did you experience in this lab?
+
+How you resolved the problems given above?
+
+how could this lab be better?
