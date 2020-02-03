@@ -1,9 +1,11 @@
-What are the purposes of Git?
+Information about the organization
 
-What is github versus git?
+List of people you met with
 
-What problems did you experience in this lab?
+A list of the stakeholders
 
-How you resolved the problems given above?
+An overview of the goals of the project
 
-how could this lab be better?
+A description of major functions and important project attributes
+
+A description of the data being stored and processed
