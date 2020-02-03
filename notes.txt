@@ -1,11 +1,28 @@
 Information about the organization
 
 List of people you met with
+* Dave
 
 A list of the stakeholders
+* Dave Heithaus
+* Student staff in Office of Green Initiative
+* Envi Studies Lab (collecting data)
+* Steve Vayden (will be user)
+* anybody interested
 
 An overview of the goals of the project
+* build system that the data can enter over time
+    -
+* take existing data and enter with new system
+* output how metrics have changed after each entry
+* what are the iTreeTools functions
+* tools similar to iTreeTools to track over time
+* enter from phone
+* configurable web app front end for database
+* also enter number of trees
 
 A description of major functions and important project attributes
 
 A description of the data being stored and processed
+
+Mission Statement
