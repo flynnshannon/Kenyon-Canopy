@@ -18,10 +18,3 @@ sleep(5)
 
 fill_from_xpath(driver, '//*[@id="address"]', '106 Gaskin Avenue Gambier, Ohio 43022')
 click(driver, '//*[@id="content"]/div/div[7]/div/a/button')
-
-
-'''address = driver.find_element_by_xpath('//*[@id="address"]')
-address.clear()
-address.send_keys('106 Gaskin Avenue Gambier, Ohio 43022')
-submit_button = driver.find_element_by_xpath('//*[@id="content"]/div/div[7]/div/a/button')
-submit_button.click()'''
