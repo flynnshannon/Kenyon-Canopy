@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.support.ui import Select
 from time import sleep
 
 def fill_from_xpath(driver, xpath, content):
@@ -6,12 +7,12 @@ def fill_from_xpath(driver, xpath, content):
   field.clear()
   field.send_keys(content)
 
-def fill_dropdown(driver, xpath, content):
-  pass
+def fill_dropdown(driver, dropdown_xpath, selection_xpath):
+  click(driver, dropdown_xpath)
+  click(driver, selection_xpath)
 
 def click(driver, xpath):
-  button = driver.find_element_by_xpath(xpath)
-  button.click()
+  driver.find_element_by_xpath(xpath).click()
 
 options = webdriver.ChromeOptions()
 options.add_argument('--ignore-certificate-errors')
@@ -33,32 +34,36 @@ sleep(5)
 #TODO:
   #add function for filling from dropdown
 
+#species
+fill_from_xpath(driver, '//*[@id="species-input"]', 'red maple')
+click(driver, '//*[@id="species-option-container"]/span[7]')
+
 #diameter in inches
 fill_from_xpath(driver, '//*[@id="diameter"]', '20.4')
 
 #tree condition
-fill_dropdown(driver, '//*[@id="condition"]', 'Good')
+fill_dropdown(driver, '//*[@id="condition"]', '//*[@id="condition"]/option[2]')
 
 #sun exposure
-fill_dropdown(driver, '//*[@id="exposure"]', 'Full')
+fill_dropdown(driver, '//*[@id="exposure"]', '//*[@id="exposure"]/option[2]')
 
 click(driver, '//*[@id="content"]/form/div/div[10]/div[2]/a/button')
-sleep(5)
+sleep(2)
 
 #this will be read from sheet
-near_building = False
+near_building = True
 
 if near_building:
   #building year
-  fill_dropdown(driver, '//*[@id="vintage"]', 'Before 1980')
+  fill_dropdown(driver, '//*[@id="vintage"]', '//*[@id="vintage"]/option[2]')
 
   #distance from building
-  fill_dropdown(driver, '//*[@id="distance"]', '>60')
+  fill_dropdown(driver, '//*[@id="distance"]', '//*[@id="distance"]/option[2]')
 
   #direction from tree to near_building
-  fill_dropdown(driver, '//*[@id="direction"]', 'north')
+  fill_dropdown(driver, '//*[@id="direction"]', '//*[@id="direction"]/option[2]')
 click(driver, '//*[@id="content"]/form/div[3]/div[1]/div[2]/a/button')
 sleep(5)
 
 #calculate benefits
-click(driver, '//*[@id="view"]/span/svg/path')
+click(driver, '//*[@id="view"]')
