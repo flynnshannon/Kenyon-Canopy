@@ -26,25 +26,24 @@ def enter_tree(my_tree):
   options = webdriver.ChromeOptions()
   options.add_argument('--ignore-certificate-errors')
   driver = webdriver.Chrome('/usr/local/bin/chromedriver')
-  driver.get('https://mytree.itreetools.org/#/')
+  driver.get('https://mytree.itreetools.org/#/location')
   sleep(5)
 
   # address
-  fill_from_xpath(driver, '//*[@id="address"]', my_tree.address)
+  fill_from_xpath(driver, '//*[@id="addressInput"]', my_tree.address)
   # go to next page
-  click(driver, '//*[@id="content"]/div/div[7]/div/a/button')
+  click(driver, '//*[@id="content"]/div/div[4]/div[3]/a/button')
   # wait for page to load
-  sleep(5)
+  sleep(10)
 
   # need to think more about how to add species
   # iTree-Tools requires you to start typing then selected
   # maybe we do a dropdown of trees Dave identifies as being on campus in the Google formaH
 
-  # TODO:
-  # add function for filling from dropdown
-
   # species
+  click(driver, '//*[@id="species-input"]')
   fill_from_xpath(driver, '//*[@id="species-input"]', my_tree.species[0])
+  # driver.select_by_visible_text(my_tree.species[0])
   click(driver, my_tree.species[1])
 
   #diameter in inches
@@ -54,13 +53,13 @@ def enter_tree(my_tree):
   fill_dropdown(driver, '//*[@id="condition"]', my_tree.condition)
 
   # sun exposure
-  fill_dropdown(driver, '//*[@id="exposure"]', my_tree.exposure)
-
-  click(driver, '//*[@id="content"]/form/div/div[10]/div[2]/a/button')
-  sleep(2)
+  click(driver, my_tree.exposure)
 
   if my_tree.near_building:
+    click(driver, '//*[@id="proximity"]/button[1]')
+    sleep(2)
     # building year
+    print(my_tree.building_year)
     fill_dropdown(driver, '//*[@id="vintage"]', my_tree.building_year)
 
     # distance from building
@@ -69,8 +68,11 @@ def enter_tree(my_tree):
     # direction from tree to near_building
     fill_dropdown(driver, '//*[@id="direction"]',
                   my_tree.direction_to_building)
-  click(driver, '//*[@id="content"]/form/div[3]/div[1]/div[2]/a/button')
+  else:
+    click(driver, '//*[@id="proximity"]/button[2]')
+  click(driver, '//*[@id="content"]/form/div/div[16]/div/a/button/span')
   sleep(5)
 
   # calculate benefits
-  click(driver, '//*[@id="view"]')
+  click(driver, '//*[@id="content"]/div/div[2]/div[2]/a/button')
+  click(driver, 'force an error to occur to prevent window from closing during testing')
