@@ -29,7 +29,7 @@ def click(driver, xpath):
   driver.find_element_by_xpath(xpath).click()
 
 
-def enter_tree(my_tree):
+def get_metrics(my_tree):
   options = webdriver.ChromeOptions()
   options.add_argument('--ignore-certificate-errors')
   driver = webdriver.Chrome('/usr/local/bin/chromedriver')
@@ -53,7 +53,7 @@ def enter_tree(my_tree):
   # driver.select_by_visible_text(my_tree.species[0])
   click(driver, my_tree.species[1])
 
-  #diameter in inches
+  # diameter in inches
   fill_from_xpath(driver, '//*[@id="diameter"]', my_tree.diam)
 
   # tree condition
@@ -94,3 +94,5 @@ def enter_tree(my_tree):
         driver.find_element_by_xpath(rainfall_gal).text)
   print('Air pollution removed ($): ' +
         driver.find_element_by_xpath(air_pollution_removed).text)
+
+  return [driver.find_element_by_xpath(total_benefit).text, driver.find_element_by_xpath(carbon_sequestered_dollars).text, driver.find_element_by_xpath(carbon_stored_lbs).text, driver.find_element_by_xpath(storm_water_dollars).text), driver.find_element_by_xpath(rainfall_gal).text), driver.find_element_by_xpath(air_pollution_removed).text]
