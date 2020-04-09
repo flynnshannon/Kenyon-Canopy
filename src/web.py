@@ -6,6 +6,13 @@ from tree import Tree
 # TODO: create dictionaries for xpath for dropdowns
 # or do this in tree.py (probably cleaner)
 
+total_benefit = '//*[@id="nutrition"]/div[5]/div/span'
+carbon_sequestered_dollars = '//*[@id="nutrition"]/div[7]/div/div[1]/strong/span'
+carbon_stored_lbs = '//*[@id="nutrition"]/div[7]/div/div[2]/span'
+storm_water_dollars = '//*[@id="nutrition"]/div[8]/div/div[1]/strong/span'
+rainfall_gal = '//*[@id="nutrition"]/div[8]/div/div[3]/span'
+air_pollution_removed = '//*[@id="nutrition"]/div[9]/div/div[1]/strong/span'
+
 
 def fill_from_xpath(driver, xpath, content):
   field = driver.find_element_by_xpath(xpath)
@@ -75,4 +82,15 @@ def enter_tree(my_tree):
 
   # calculate benefits
   click(driver, '//*[@id="content"]/div/div[2]/div[2]/a/button')
-  click(driver, 'force an error to occur to prevent window from closing during testing')
+
+  print('Total benefit: ' + driver.find_element_by_xpath(total_benefit).text)
+  print('Carbon sequestered ($): ' +
+        driver.find_element_by_xpath(carbon_sequestered_dollars).text)
+  print('Carbon stored (lbs): ' +
+        driver.find_element_by_xpath(carbon_stored_lbs).text)
+  print('Storm water runnoff avoided ($): ' +
+        driver.find_element_by_xpath(storm_water_dollars).text)
+  print('Rainfall intercepted (gal): ' +
+        driver.find_element_by_xpath(rainfall_gal).text)
+  print('Air pollution removed ($): ' +
+        driver.find_element_by_xpath(air_pollution_removed).text)
