@@ -35,17 +35,15 @@ for tree in trees:
     print(tree[i])
   forest.append(Tree('106 Gaskin Avenue Gambier, Ohio 43022', tree[0], tree[1], tree[2], tree[3], tree[4], tree[5], tree[6], tree[7]))
 
-'''all_rows = []
-for index, rows in df.iterrows():
-  temp = [rows.Address, rows.Species, rows.DBH,
-          rows.Condition, rows.Exposure]
-  all_rows.append(temp)
-
-print(all_rows)'''
-
 test = Tree('106 Gaskin Avenue Gambier, Ohio 43022', ['red maple', '//*[@id="species-option-container"]/span[7]'], '20.4', '//*[@id="condition"]/option[2]',
             '//*[@id="exposure"]/button[3]', True, '//*[@id="vintage"]/option[3]', '//*[@id="distance"]/option[2]', '//*[@id="direction"]/option[2]')
-#response = web.get_metrics(test)
+response = web.get_metrics(test)
 responses = []
 for tree in forest:
-  responses.append(web.get_metrics(tree))
+  #responses.append(web.get_metrics(tree))
+  pass
+
+#TODO write code to write resonses to df dict
+###use unupdated list
+
+#pd.DataFrame.from_dict(df).to_excel('test.xlsx')
