@@ -95,4 +95,4 @@ def get_metrics(my_tree):
   print('Air pollution removed ($): ' +
         driver.find_element_by_xpath(air_pollution_removed).text)
 
-  return [driver.find_element_by_xpath(total_benefit).text, driver.find_element_by_xpath(carbon_sequestered_dollars).text, driver.find_element_by_xpath(carbon_stored_lbs).text, driver.find_element_by_xpath(storm_water_dollars).text), driver.find_element_by_xpath(rainfall_gal).text), driver.find_element_by_xpath(air_pollution_removed).text]
+  return [driver.find_element_by_xpath(total_benefit).text, driver.find_element_by_xpath(carbon_sequestered_dollars).text, driver.find_element_by_xpath(carbon_stored_lbs).text, driver.find_element_by_xpath(storm_water_dollars).text, driver.find_element_by_xpath(rainfall_gal).text, driver.find_element_by_xpath(air_pollution_removed).text]
