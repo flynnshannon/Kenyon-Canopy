@@ -32,7 +32,9 @@ def click(driver, xpath):
 def get_metrics(my_tree):
   options = webdriver.ChromeOptions()
   options.add_argument('--ignore-certificate-errors')
-  driver = webdriver.Chrome('/usr/local/bin/chromedriver')
+  #comment out the line below to see chrome
+  options.add_argument('headless')
+  driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=options)
   driver.get('https://mytree.itreetools.org/#/location')
   sleep(5)
 
@@ -50,6 +52,7 @@ def get_metrics(my_tree):
   # species
   click(driver, '//*[@id="species-input"]')
   fill_from_xpath(driver, '//*[@id="species-input"]', my_tree.species[0])
+  sleep(1)
   # driver.select_by_visible_text(my_tree.species[0])
   click(driver, my_tree.species[1])
 
