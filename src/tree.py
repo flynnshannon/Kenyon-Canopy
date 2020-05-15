@@ -1,9 +1,10 @@
 class Tree:
 
-  def __init__(self, address, species, diam, condition, exposure, near_building, building_year, distance_to_building, direction_to_building):
+  def __init__(self, address, species, diam, type, condition, exposure, near_building, building_year, distance_to_building, direction_to_building):
     self.address = address
     self.species = species
     self.diam = diam
+    self.type = type
     self.condition = condition
     self.exposure = exposure
     self.near_building = near_building
